@@ -3,6 +3,11 @@
 -- Schema & Sample Data
 -- ============================================================
 
+-- Drop tables in reverse dependency order (safe re-run)
+DROP TABLE IF EXISTS bookings CASCADE;
+DROP TABLE IF EXISTS matches  CASCADE;
+DROP TABLE IF EXISTS users    CASCADE;
+
 -- ─────────────────────────────────────────────────────────────
 -- 1. Users Table
 -- ─────────────────────────────────────────────────────────────
