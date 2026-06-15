@@ -38,8 +38,8 @@ SELECT
     full_name,
     email
 FROM users
-WHERE full_name ILIKE 'Tanvir%'
-   OR full_name ILIKE '%Haque%';
+WHERE full_name LIKE 'Tanvir%'        -- LIKE  : case-sensitive prefix match
+   OR full_name ILIKE '%Haque%';       -- ILIKE : case-insensitive substring match
 
 /*
 Expected Output:
@@ -88,7 +88,8 @@ SELECT
     b.total_cost
 FROM bookings b
 INNER JOIN users   u ON b.user_id  = u.user_id
-INNER JOIN matches m ON b.match_id = m.match_id;
+INNER JOIN matches m ON b.match_id = m.match_id
+ORDER BY b.booking_id;
 
 /*
 Expected Output:
@@ -115,7 +116,8 @@ SELECT
     u.full_name,
     b.booking_id
 FROM users u
-LEFT JOIN bookings b ON u.user_id = b.user_id;
+LEFT JOIN bookings b ON u.user_id = b.user_id
+ORDER BY u.user_id, b.booking_id;
 
 /*
 Expected Output:
